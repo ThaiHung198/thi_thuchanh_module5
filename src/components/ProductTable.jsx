@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-// Hàm tiện ích định dạng ngày (Yêu cầu 1)
 const formatDate = (dateString) => {
   try {
     const [year, month, day] = dateString.split("-");
@@ -12,7 +11,6 @@ const formatDate = (dateString) => {
 };
 
 const ProductTable = ({ products, productTypes }) => {
-  // Dùng Map để tra cứu tên loại sản phẩm hiệu quả hơn
   const productTypeMap = useMemo(() => {
     return new Map(productTypes.map((pt) => [pt.id, pt.ten_loai_san_pham]));
   }, [productTypes]);

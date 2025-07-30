@@ -25,10 +25,10 @@
     {
       "id": "1",
       "ma_san_pham": "SP001",
-      "ten_san_pham": "Áo Sơ Mi Trắng Tay Dài",
+      "ten_san_pham": "Áo Sơ Mi Trắng Tay Dài test",
       "ngay_nhap": "2023-10-26",
       "so_luong": 150,
-      "loai_san_pham_id": 1,
+      "loai_san_pham_id": "1",
       "gia_ban_dau": 350000
     },
     {
@@ -37,7 +37,7 @@
       "ten_san_pham": "Quần Jean Xanh Đậm Skinny",
       "ngay_nhap": "2023-11-15",
       "so_luong": 200,
-      "loai_san_pham_id": 2,
+      "loai_san_pham_id": "2",
       "gia_ban_dau": 550000
     },
     {
@@ -46,7 +46,7 @@
       "ten_san_pham": "Váy Hoa Mùa Hè",
       "ngay_nhap": "2024-03-01",
       "so_luong": 80,
-      "loai_san_pham_id": 3,
+      "loai_san_pham_id": "3",
       "gia_ban_dau": 480000
     },
     {
@@ -55,7 +55,7 @@
       "ten_san_pham": "Áo Thun Cotton In Hình",
       "ngay_nhap": "2024-05-10",
       "so_luong": 300,
-      "loai_san_pham_id": 4,
+      "loai_san_pham_id": "4",
       "gia_ban_dau": 180000
     },
     {
@@ -64,7 +64,7 @@
       "ten_san_pham": "Quần Jean Baggy Rách Gối",
       "ngay_nhap": "2024-01-20",
       "so_luong": 120,
-      "loai_san_pham_id": 2,
+      "loai_san_pham_id": "2",
       "gia_ban_dau": 620000
     },
     {
@@ -73,7 +73,7 @@
       "ten_san_pham": "Áo Sơ Mi Caro",
       "ngay_nhap": "2024-04-22",
       "so_luong": 95,
-      "loai_san_pham_id": 1,
+      "loai_san_pham_id": "1",
       "gia_ban_dau": 380000
     },
     {
@@ -82,7 +82,7 @@
       "ten_san_pham": "Váy Jean Ngắn",
       "ngay_nhap": "2024-05-01",
       "so_luong": 110,
-      "loai_san_pham_id": 3,
+      "loai_san_pham_id": "3",
       "gia_ban_dau": 420000
     },
     {
@@ -109,7 +109,7 @@
       "ten_san_pham": "Áo Sơ Mi Lụa",
       "ngay_nhap": "2024-03-20",
       "so_luong": 70,
-      "loai_san_pham_id": 1,
+      "loai_san_pham_id": "1",
       "gia_ban_dau": 450000
     },
     {
@@ -118,7 +118,7 @@
       "ten_san_pham": "Váy Body Đen",
       "ngay_nhap": "2024-05-12",
       "so_luong": 60,
-      "loai_san_pham_id": 3,
+      "loai_san_pham_id": "3",
       "gia_ban_dau": 520000
     },
     {
@@ -127,7 +127,7 @@
       "ten_san_pham": "Áo Thun Polo",
       "ngay_nhap": "2024-01-10",
       "so_luong": 250,
-      "loai_san_pham_id": 4,
+      "loai_san_pham_id": "4",
       "gia_ban_dau": 250000
     }
   ]

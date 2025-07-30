@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import UpdateProductPage from "./pages/UpdateProductPage";
-import "./App.css"; // Import file CSS đã chuẩn bị
-
+import "./App.css";
 function App() {
   return (
     <Router>
