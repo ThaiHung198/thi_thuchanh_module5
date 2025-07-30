@@ -1,22 +1,134 @@
 {
   "product_types": [
-    { "id": 1, "ma_loai_san_pham": "LSP01", "ten_loai_san_pham": "Áo Sơ Mi" },
-    { "id": 2, "ma_loai_san_pham": "LSP02", "ten_loai_san_pham": "Quần Jean" },
-    { "id": 3, "ma_loai_san_pham": "LSP03", "ten_loai_san_pham": "Váy" },
-    { "id": 4, "ma_loai_san_pham": "LSP04", "ten_loai_san_pham": "Áo Thun" }
+    {
+      "id": "1",
+      "ma_loai_san_pham": "LSP01",
+      "ten_loai_san_pham": "Áo Sơ Mi"
+    },
+    {
+      "id": "2",
+      "ma_loai_san_pham": "LSP02",
+      "ten_loai_san_pham": "Quần Jean"
+    },
+    {
+      "id": "3",
+      "ma_loai_san_pham": "LSP03",
+      "ten_loai_san_pham": "Váy"
+    },
+    {
+      "id": "4",
+      "ma_loai_san_pham": "LSP04",
+      "ten_loai_san_pham": "Áo Thun"
+    }
   ],
   "products": [
-    { "id": 1, "ma_san_pham": "SP001", "ten_san_pham": "Áo Sơ Mi Trắng Tay Dài", "ngay_nhap": "2023-10-26", "so_luong": 150, "loai_san_pham_id": 1, "gia_ban_dau": 350000 },
-    { "id": 2, "ma_san_pham": "SP002", "ten_san_pham": "Quần Jean Xanh Đậm Skinny", "ngay_nhap": "2023-11-15", "so_luong": 200, "loai_san_pham_id": 2, "gia_ban_dau": 550000 },
-    { "id": 3, "ma_san_pham": "SP003", "ten_san_pham": "Váy Hoa Mùa Hè", "ngay_nhap": "2024-03-01", "so_luong": 80, "loai_san_pham_id": 3, "gia_ban_dau": 480000 },
-    { "id": 4, "ma_san_pham": "SP004", "ten_san_pham": "Áo Thun Cotton In Hình", "ngay_nhap": "2024-05-10", "so_luong": 300, "loai_san_pham_id": 4, "gia_ban_dau": 180000 },
-    { "id": 5, "ma_san_pham": "SP005", "ten_san_pham": "Quần Jean Baggy Rách Gối", "ngay_nhap": "2024-01-20", "so_luong": 120, "loai_san_pham_id": 2, "gia_ban_dau": 620000 },
-    { "id": 6, "ma_san_pham": "SP006", "ten_san_pham": "Áo Sơ Mi Caro", "ngay_nhap": "2024-04-22", "so_luong": 95, "loai_san_pham_id": 1, "gia_ban_dau": 380000 },
-    { "id": 7, "ma_san_pham": "SP007", "ten_san_pham": "Váy Jean Ngắn", "ngay_nhap": "2024-05-01", "so_luong": 110, "loai_san_pham_id": 3, "gia_ban_dau": 420000 },
-    { "id": 8, "ma_san_pham": "SP008", "ten_san_pham": "Áo Thun Trơn Basic", "ngay_nhap": "2023-12-30", "so_luong": 500, "loai_san_pham_id": 4, "gia_ban_dau": 120000 },
-    { "id": 9, "ma_san_pham": "SP009", "ten_san_pham": "Quần Jean Ống Rộng", "ngay_nhap": "2024-02-15", "so_luong": 180, "loai_san_pham_id": 2, "gia_ban_dau": 590000 },
-    { "id": 10, "ma_san_pham": "SP010", "ten_san_pham": "Áo Sơ Mi Lụa", "ngay_nhap": "2024-03-20", "so_luong": 70, "loai_san_pham_id": 1, "gia_ban_dau": 450000 },
-    { "id": 11, "ma_san_pham": "SP011", "ten_san_pham": "Váy Body Đen", "ngay_nhap": "2024-05-12", "so_luong": 60, "loai_san_pham_id": 3, "gia_ban_dau": 520000 },
-    { "id": 12, "ma_san_pham": "SP012", "ten_san_pham": "Áo Thun Polo", "ngay_nhap": "2024-01-10", "so_luong": 250, "loai_san_pham_id": 4, "gia_ban_dau": 250000 }
+    {
+      "id": "1",
+      "ma_san_pham": "SP001",
+      "ten_san_pham": "Áo Sơ Mi Trắng Tay Dài",
+      "ngay_nhap": "2023-10-26",
+      "so_luong": 150,
+      "loai_san_pham_id": 1,
+      "gia_ban_dau": 350000
+    },
+    {
+      "id": "2",
+      "ma_san_pham": "SP002",
+      "ten_san_pham": "Quần Jean Xanh Đậm Skinny",
+      "ngay_nhap": "2023-11-15",
+      "so_luong": 200,
+      "loai_san_pham_id": 2,
+      "gia_ban_dau": 550000
+    },
+    {
+      "id": "3",
+      "ma_san_pham": "SP003",
+      "ten_san_pham": "Váy Hoa Mùa Hè",
+      "ngay_nhap": "2024-03-01",
+      "so_luong": 80,
+      "loai_san_pham_id": 3,
+      "gia_ban_dau": 480000
+    },
+    {
+      "id": "4",
+      "ma_san_pham": "SP004",
+      "ten_san_pham": "Áo Thun Cotton In Hình",
+      "ngay_nhap": "2024-05-10",
+      "so_luong": 300,
+      "loai_san_pham_id": 4,
+      "gia_ban_dau": 180000
+    },
+    {
+      "id": "5",
+      "ma_san_pham": "SP005",
+      "ten_san_pham": "Quần Jean Baggy Rách Gối",
+      "ngay_nhap": "2024-01-20",
+      "so_luong": 120,
+      "loai_san_pham_id": 2,
+      "gia_ban_dau": 620000
+    },
+    {
+      "id": "6",
+      "ma_san_pham": "SP006",
+      "ten_san_pham": "Áo Sơ Mi Caro",
+      "ngay_nhap": "2024-04-22",
+      "so_luong": 95,
+      "loai_san_pham_id": 1,
+      "gia_ban_dau": 380000
+    },
+    {
+      "id": "7",
+      "ma_san_pham": "SP007",
+      "ten_san_pham": "Váy Jean Ngắn",
+      "ngay_nhap": "2024-05-01",
+      "so_luong": 110,
+      "loai_san_pham_id": 3,
+      "gia_ban_dau": 420000
+    },
+    {
+      "id": "8",
+      "ma_san_pham": "SP008",
+      "ten_san_pham": "Áo Thun Trơn basic",
+      "ngay_nhap": "2023-12-30",
+      "so_luong": 500,
+      "loai_san_pham_id": 4,
+      "gia_ban_dau": 120000
+    },
+    {
+      "id": "9",
+      "ma_san_pham": "SP009",
+      "ten_san_pham": "Quần Jean Ống Rộng",
+      "ngay_nhap": "2024-02-15",
+      "so_luong": 180,
+      "loai_san_pham_id": 2,
+      "gia_ban_dau": 590000
+    },
+    {
+      "id": "10",
+      "ma_san_pham": "SP010",
+      "ten_san_pham": "Áo Sơ Mi Lụa",
+      "ngay_nhap": "2024-03-20",
+      "so_luong": 70,
+      "loai_san_pham_id": 1,
+      "gia_ban_dau": 450000
+    },
+    {
+      "id": "11",
+      "ma_san_pham": "SP011",
+      "ten_san_pham": "Váy Body Đen",
+      "ngay_nhap": "2024-05-12",
+      "so_luong": 60,
+      "loai_san_pham_id": 3,
+      "gia_ban_dau": 520000
+    },
+    {
+      "id": "12",
+      "ma_san_pham": "SP012",
+      "ten_san_pham": "Áo Thun Polo",
+      "ngay_nhap": "2024-01-10",
+      "so_luong": 250,
+      "loai_san_pham_id": 4,
+      "gia_ban_dau": 250000
+    }
   ]
 }

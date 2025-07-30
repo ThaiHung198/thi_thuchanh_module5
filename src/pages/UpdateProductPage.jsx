@@ -6,43 +6,62 @@ const UpdateProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({});
+  // State để lưu dữ liệu của form
+  const [formData, setFormData] = useState({
+    ten_san_pham: "",
+    ngay_nhap: "",
+    so_luong: 0,
+    loai_san_pham_id: "",
+    // Các trường không cho sửa nhưng vẫn cần để gửi đi
+    ma_san_pham: "",
+    gia_ban_dau: 0,
+  });
+  // State để lưu danh sách các loại sản phẩm cho dropdown
   const [productTypes, setProductTypes] = useState([]);
+  // State để lưu các lỗi validation
   const [errors, setErrors] = useState({});
+  // State cho trạng thái tải dữ liệu
   const [loading, setLoading] = useState(true);
 
+  // useEffect để lấy dữ liệu sản phẩm và loại sản phẩm khi component được mount
   useEffect(() => {
-    const fetchProductData = async () => {
+    const fetchInitialData = async () => {
       try {
-        const response = await axios.get("/db.json");
-        const productToUpdate = response.data.products.find(
-          (p) => p.id === Number(id)
-        );
-        if (productToUpdate) {
-          setFormData(productToUpdate);
+        // Sử dụng Promise.all để lấy dữ liệu song song, tăng hiệu suất
+        const [productResponse, typesResponse] = await Promise.all([
+          axios.get(`http://localhost:8000/products/${id}`),
+          axios.get("http://localhost:8000/product_types"),
+        ]);
+
+        if (productResponse.data) {
+          setFormData(productResponse.data);
         } else {
+          // Nếu không tìm thấy sản phẩm, thông báo và điều hướng về trang chủ
           alert("Không tìm thấy sản phẩm!");
           navigate("/");
         }
-        setProductTypes(response.data.product_types);
+        setProductTypes(typesResponse.data);
       } catch (error) {
-        console.error("Lỗi khi tải dữ liệu sản phẩm", error);
+        console.error("Lỗi khi tải dữ liệu ban đầu:", error);
+        alert("Không thể tải dữ liệu. Vui lòng thử lại.");
+        navigate("/"); // Điều hướng về trang chủ nếu có lỗi
       } finally {
         setLoading(false);
       }
     };
-    fetchProductData();
-  }, [id, navigate]);
 
-  // **CẢI TIẾN:** Hàm handleChange thông minh hơn
+    fetchInitialData();
+  }, [id, navigate]); // Dependency array
+
+  // Hàm xử lý khi người dùng thay đổi giá trị trong form
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    // Tự động chuyển đổi sang số nếu input là type="number"
+    // Tự động chuyển đổi sang kiểu số nếu input là type="number"
     const finalValue = type === "number" ? Number(value) : value;
     setFormData((prev) => ({ ...prev, [name]: finalValue }));
   };
 
-  // **CẢI TIẾN:** Logic validation chặt chẽ hơn
+  // Hàm kiểm tra các ràng buộc dữ liệu (validation)
   const validate = () => {
     const newErrors = {};
 
@@ -59,7 +78,7 @@ const UpdateProductPage = () => {
     } else {
       const selectedDate = new Date(formData.ngay_nhap);
       const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0); // Reset giờ để so sánh chính xác
       if (selectedDate > today) {
         newErrors.ngay_nhap = "Ngày nhập không được lớn hơn ngày hiện tại.";
       }
@@ -78,29 +97,44 @@ const UpdateProductPage = () => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0; // Trả về true nếu không có lỗi
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Hàm xử lý khi người dùng gửi form
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Ngăn chặn hành vi mặc định của form
+
+    // Nếu validation thành công
     if (validate()) {
-      console.log("Dữ liệu đã được cập nhật (mô phỏng):", formData);
-      alert("Cập nhật sản phẩm thành công!");
-      navigate("/");
+      try {
+        // Gửi request PUT lên API server để cập nhật dữ liệu
+        await axios.put(`http://localhost:8000/products/${id}`, formData);
+
+        // Thông báo thành công và điều hướng về trang chủ
+        alert("Cập nhật sản phẩm thành công!");
+        navigate("/");
+      } catch (error) {
+        console.error("Lỗi khi cập nhật sản phẩm:", error);
+        alert("Đã có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại.");
+      }
     }
   };
 
-  if (loading) return <p>Đang tải...</p>;
+  // Hiển thị trạng thái loading
+  if (loading) return <p>Đang tải dữ liệu sản phẩm...</p>;
 
+  // Render giao diện form
   return (
     <div className="container">
       <h1>Cập nhật thông tin sản phẩm</h1>
       <form onSubmit={handleSubmit} className="product-form" noValidate>
-        {/* ... các form group không thay đổi ... */}
+        {/* Trường Mã sản phẩm (không cho sửa) */}
         <div className="form-group">
           <label>Mã sản phẩm</label>
           <input type="text" value={formData.ma_san_pham || ""} disabled />
         </div>
+
+        {/* Trường Giá bán ban đầu (không cho sửa) */}
         <div className="form-group">
           <label>Giá bán ban đầu</label>
           <input
@@ -109,6 +143,8 @@ const UpdateProductPage = () => {
             disabled
           />
         </div>
+
+        {/* Trường Tên sản phẩm */}
         <div className="form-group">
           <label htmlFor="ten_san_pham">Tên sản phẩm</label>
           <input
@@ -122,6 +158,8 @@ const UpdateProductPage = () => {
             <span className="error-message">{errors.ten_san_pham}</span>
           )}
         </div>
+
+        {/* Trường Ngày nhập */}
         <div className="form-group">
           <label htmlFor="ngay_nhap">Ngày nhập</label>
           <input
@@ -135,9 +173,10 @@ const UpdateProductPage = () => {
             <span className="error-message">{errors.ngay_nhap}</span>
           )}
         </div>
+
+        {/* Trường Số lượng */}
         <div className="form-group">
           <label htmlFor="so_luong">Số lượng</label>
-          {/* Thêm type="number" vào đây để handleChange hoạt động đúng */}
           <input
             type="number"
             id="so_luong"
@@ -149,6 +188,8 @@ const UpdateProductPage = () => {
             <span className="error-message">{errors.so_luong}</span>
           )}
         </div>
+
+        {/* Trường Loại sản phẩm */}
         <div className="form-group">
           <label htmlFor="loai_san_pham_id">Loại sản phẩm</label>
           <select
@@ -166,11 +207,12 @@ const UpdateProductPage = () => {
               </option>
             ))}
           </select>
-          {/* Thêm thông báo lỗi cho loại sản phẩm */}
           {errors.loai_san_pham_id && (
             <span className="error-message">{errors.loai_san_pham_id}</span>
           )}
         </div>
+
+        {/* Các nút hành động */}
         <div className="form-actions">
           <button type="submit" className="btn-primary">
             Lưu thay đổi
