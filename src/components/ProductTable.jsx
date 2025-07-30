@@ -39,7 +39,7 @@ const ProductTable = ({ products, productTypes }) => {
             </td>
             <td>
               <Link to={`/products/${product.id}/edit`}>
-                <button>Sửa</button>
+                <button>Cập Nhật</button>
               </Link>
             </td>
           </tr>
